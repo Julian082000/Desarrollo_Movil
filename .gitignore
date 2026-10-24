@@ -1,0 +1,16 @@
+# Secretos
+.env
+.env.*
+!.env.example
+*-firebase-adminsdk-*.json
+serviceAccount*.json
+
+# Dependencias y builds
+node_modules/
+.next/
+.expo/
+dist/
+*.tsbuildinfo
+
+# Archivo suelto de la ra?z (qued? de un npm install en la carpeta equivocada)
+/package-lock.json
