@@ -67,7 +67,12 @@ async function firebaseRest<T>(url: string, init: RequestInit): Promise<T> {
     if (code.startsWith("TOO_MANY_ATTEMPTS")) {
       throw new ApiError(429, "RATE_LIMITED", "Demasiados intentos, espera un momento");
     }
-    throw new ApiError(502, "INTERNAL_ERROR", "Error al contactar el servicio de autenticación");
+        console.error("Firebase Auth REST error:", code);
+    throw new ApiError(
+      502,
+      "INTERNAL_ERROR",
+      `Error al contactar el servicio de autenticación (${code})`,
+    );
   }
   return body;
 }
